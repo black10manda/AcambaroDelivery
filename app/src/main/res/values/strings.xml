@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AcambaroDelivery</string>
+    <string name="Usuario">Usuario</string>
+    <string name="pass">Contraseña</string>
+    <string name="Registrar">¿Aún no estas Registrado? Registrate</string>
+    <string name="Registro">Registro</string>
+    <string name="emplyFieldError">Campo Vacio</string>
+    <string name="Olvido">¿Olvidate la Contraseña?</string>
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="preguntas">
+        <item>¿cuál es tu ciudad de nacimiento?</item>
+        <item>¿Cuál es tu comida favorita?</item>
+        <item>¿Cuál es el nombre de tu madre?</item>
+    </string-array>
+
+</resources>

@@ -1,9 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Menu">
+    tools:context=".Menu"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/pruebauser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fs"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/userM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fs"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/passM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fs"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/nameM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fs"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/phoneM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fs"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/addressM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fs"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/questionM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fs"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/answeM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="fs"
+        android:textSize="30dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -2,9 +2,9 @@
 <resources>
 
     <string-array name="preguntas">
-        <item>¿cuál es tu ciudad de nacimiento?</item>
-        <item>¿Cuál es tu comida favorita?</item>
-        <item>¿Cuál es el nombre de tu madre?</item>
+        <item>cual es tu ciudad de nacimiento?</item>
+        <item>Cual es tu comida favorita?</item>
+        <item>Cual es el nombre de tu madre?</item>
     </string-array>
 
 </resources>

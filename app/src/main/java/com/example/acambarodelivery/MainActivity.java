@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,6 +13,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,6 +35,17 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         edtUser=findViewById(R.id.edtUser);
         edtPass=findViewById(R.id.edtPass);
+
+        SharedPreferences preferences;
+        preferences = getSharedPreferences("Usuario",
+                MODE_PRIVATE);
+        boolean log = preferences.getBoolean("log", false);
+        if (log){
+            Usuario usuario=new Usuario();
+            usuario.setUser(preferences.getString("user", "error"));
+            usuario.setPass(preferences.getString("pass", "error"));
+            new LoginRest().execute(usuario);
+        }
 
     }
     public void btniniciar(View view) {
@@ -73,24 +89,29 @@ public class MainActivity extends Activity {
         Toast.makeText(this, "activiti olvido", Toast.LENGTH_SHORT).show();
     }
 
-    public  class LoginRest extends AsyncTask<Usuario,Integer,Boolean> {
+    public  class LoginRest extends AsyncTask<Usuario,Integer, Boolean> {
 
         //preparar la conexion con el servidor
         URLConnection connection;
         //variable para almacenar el resultado que nos muestra el servidor
         String result="0";
+        JSONObject jsonArray=null;
         //apuntar la variable de conxion al servidor
         @Override
         protected Boolean doInBackground(Usuario... usua) {
+
             try {
                 connection= new URL("http://192.168.1.104/testServer/rest/Login.php?user="+usua[0].getUser()+"&password="+usua[0].getPass()).openConnection();
                 InputStream inputStream=(InputStream) connection.getContent();
-                byte[] buffer=new byte[100000];
+                byte[] buffer=new byte[10000000];
                 result =new String(buffer,0,inputStream.read(buffer));
+                int size=inputStream.read(buffer);
+
                 Log.i("result",result+":");
 
                 if (result.charAt(2)=='1'){
                     Log.i("entro ","1");
+
                     return true;
                 }else {
                     Log.i("no entro ","0");
@@ -107,15 +128,28 @@ public class MainActivity extends Activity {
             return false;
         }
 
+
+
+
         @Override
         protected void onPostExecute(Boolean aBoolean) {
             super.onPostExecute(aBoolean);
-            if (aBoolean){
-                Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(MainActivity.this,Usuarios.class));
+            Usuario usuarios=new Usuario();
+
+            String cadena=result;
+            String[] parts = cadena.split(":");
+               if (aBoolean){
+
+                   Toast.makeText(MainActivity.this, "Welcome ", Toast.LENGTH_SHORT).show();
+                   Intent intent = new Intent(MainActivity.this, MenuNavigatinDrawer.class);
+                   intent.putExtra("id", parts[2]);
+                   startActivity(intent);
             }else {
                 Toast.makeText(MainActivity.this, "Usuario o Contraseña incorrectos", Toast.LENGTH_SHORT).show();
             }
+
+
+
         }
     }
 }

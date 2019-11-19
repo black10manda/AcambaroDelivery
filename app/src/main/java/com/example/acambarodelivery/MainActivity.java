@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
         preferences = getSharedPreferences("Usuario",
                 MODE_PRIVATE);
         boolean log = preferences.getBoolean("log", false);
+        //llevar al splash
         if (log){
             Usuario usuario=new Usuario();
             usuario.setUser(preferences.getString("user", "error"));
@@ -101,7 +102,7 @@ public class MainActivity extends Activity {
         protected Boolean doInBackground(Usuario... usua) {
 
             try {
-                connection= new URL("http://192.168.1.104/testServer/rest/Login.php?user="+usua[0].getUser()+"&password="+usua[0].getPass()).openConnection();
+                connection= new URL("http://10.17.31.234/testServer/rest/Login.php?user="+usua[0].getUser()+"&password="+usua[0].getPass()).openConnection();
                 InputStream inputStream=(InputStream) connection.getContent();
                 byte[] buffer=new byte[10000000];
                 result =new String(buffer,0,inputStream.read(buffer));

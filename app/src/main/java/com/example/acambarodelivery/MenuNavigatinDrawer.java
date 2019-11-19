@@ -91,7 +91,7 @@ public class MenuNavigatinDrawer extends AppCompatActivity {
             URLConnection connection=null;
             JSONArray jsonArray=null;
             try {
-                connection = new URL("http://192.168.1.104/testServer/rest/getUserByID.php?id="+idFinal).openConnection();
+                connection = new URL("http://10.17.31.234/testServer/rest/getUserByID.php?id="+idFinal).openConnection();
 
                 InputStream inputStream=(InputStream)connection.getContent();
                 byte[] buffer=new byte[100000];

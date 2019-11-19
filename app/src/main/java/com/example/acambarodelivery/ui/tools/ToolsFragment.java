@@ -154,7 +154,7 @@ public class ToolsFragment extends Fragment{
                     "&answer="+usua[0].getAnswer();
 
             try {
-                URL url = new URL("http://192.168.1.104/testServer/rest/UpdateUser.php");
+                URL url = new URL("http://10.17.31.234/testServer/rest/UpdateUser.php");
                 HttpURLConnection connection= (HttpURLConnection) url.openConnection();
 
                 connection.setRequestMethod("POST");
